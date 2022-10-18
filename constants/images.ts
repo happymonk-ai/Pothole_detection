@@ -14,6 +14,7 @@ import location_pin_img from "../public/assets/location_pin.svg";
 import low_icon from "../public/assets/low_icon.svg";
 import high_icon from "../public/assets/high_icon.svg";
 import moderate_icon from "../public/assets/moderate_icon.svg";
+import search_img from "../public/assets/search.png";
 
 export const images = {
     share_green: share_green_img,
@@ -33,4 +34,5 @@ export const images = {
     high_icon: high_icon,
     moderate_icon: moderate_icon,
     low_icon: low_icon,
+    search: search_img
 }
