@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import DashboardLayout from "../layouts/DashboardLayout";
 
 const Home: NextPage = () => {
   return (
@@ -10,6 +11,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/logo192.png" />
       </Head>
+      <DashboardLayout />
     </div>
   );
 };

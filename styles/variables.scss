@@ -20,4 +20,9 @@ $colors:(
     tp-dark-gray: rgba(46, 48, 52, 0.2),
     tp-gray: rgba(47, 47, 47, 0.47),
     tp-dark-gradient: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.63) 100%) 
+);
+
+
+$heights: (
+    container: calc(100vh - 15px),
 )
