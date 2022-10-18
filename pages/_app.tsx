@@ -4,11 +4,14 @@ import type { AppProps } from "next/app";
 import { PersistGate } from "redux-persist/integration/react";
 import store, { persistor } from "../redux/store";
 import "../styles/globals.scss";
+import AppLayout from "../layouts/AppLayout";
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <Component {...pageProps} />
+        <AppLayout>
+          <Component {...pageProps} />
+        </AppLayout>
       </PersistGate>
     </Provider>
   );
