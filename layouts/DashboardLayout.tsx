@@ -1,4 +1,5 @@
 // import Map from "../components/map/Map";
+import MapInfo from "../components/map/cards/MapInfo";
 import Map from "../components/map/Map";
 import styles from "./index.module.scss";
 
@@ -16,7 +17,9 @@ const DashboardLayout = () => {
               <div className={styles.videos}></div>
             </div>
             <div className={styles.right}>
-              <div className={styles.map_info}></div>
+              <div className={styles.map_info}>
+                <MapInfo />
+              </div>
             </div>
           </div>
         </div>
