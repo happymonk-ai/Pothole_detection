@@ -12,6 +12,7 @@
     "pre:commit": "yarn build && yarn lint --fix"
   },
   "dependencies": {
+    "@fontsource/inter": "^4.5.14",
     "@reduxjs/toolkit": "^1.8.6",
     "mapbox-gl": "^2.10.0",
     "next": "12.3.1",

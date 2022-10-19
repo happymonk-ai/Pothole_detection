@@ -34,13 +34,7 @@ const CategoryBox: FC<TBoxProps> = ({
       className={`${styles.box} ${highlight && styles.highlight_box}`}
       onClick={handleClick}
     >
-      <Image
-        src={image}
-        alt=""
-        className={styles.image}
-        width={50}
-        height={50}
-      />
+      <Image src={image} alt="" className={styles.image} />
       <h1
         className={`${styles.type} ${common_styles.category_type}  ${
           styles[`${type.toLowerCase()}`]
