@@ -1,0 +1,82 @@
+@import "../../../../styles/variables.scss";
+
+.container {
+    width: 375px;
+    height: 111px;
+    background-color: map-get($colors, "dark");
+    display: grid;
+    grid-template-columns: 30px auto;
+    padding: 14px 24px;
+    gap: 15px;
+
+    .left {
+        .icon {
+            max-width: 30px;
+            max-height: 30px;
+        }
+    }
+
+    .right {
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+
+        .top {
+            display: flex;
+            flex-direction: column;
+
+            .title {
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 20px;
+                color: rgba(228, 228, 231, 0.8);
+                margin: 0%;
+            }
+
+            .coordinates {
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 20px;
+                color: rgba(255, 255, 255, 0.7);
+            }
+        }
+
+        .bottom {
+            display: flex;
+            flex-direction: column;
+
+            .detail {
+                display: flex;
+                gap: 23px;
+
+                .title {
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 20px;
+                    color: rgba(201, 201, 201, 0.6);
+                    margin: 0%;
+                }
+
+                .details_container {
+                    display: flex;
+                    gap: 4px;
+
+                    .amount {
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 20px;
+                        color: rgba(228, 228, 231, 0.8);
+                        margin: 0%;
+                    }
+
+                    .unit {
+                        font-weight: 400;
+                        font-size: 12px;
+                        line-height: 20px;
+                        color: rgba(255, 255, 255, 0.7);
+                    }
+                }
+            }
+        }
+    }
+}

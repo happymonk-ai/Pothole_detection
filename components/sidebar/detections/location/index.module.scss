@@ -1,0 +1,97 @@
+@import "../../../../styles/variables.scss";
+
+.locations {
+    position: relative;
+    overflow-y: scroll;
+    max-height: calc(100vh - 450px);
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+
+    .container {
+        display: grid;
+        grid-template-columns: 10% auto;
+        gap: 11px;
+        border-bottom: .25px solid map-get($colors, "side-bar-main-header");
+        padding-top: 17px;
+
+        .left {
+            padding-left: 20px;
+        }
+
+        .right {
+
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .top {
+                display: flex;
+                flex-direction: column;
+                gap: 13px;
+                padding-right: 20px;
+
+                .heading {
+
+                    display: flex;
+
+                    .title {
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 20px;
+                        color: rgba(228, 228, 231, 0.8);
+                        margin: 0;
+                    }
+
+
+                    .time {
+                        margin-left: auto;
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 20px;
+                        text-align: left;
+                        color: rgba(228, 228, 231, 0.4);
+                    }
+                }
+
+                .detail {
+                    display: flex;
+                    gap: 15px;
+
+                    .left {
+                        height: 22px;
+                        background: rgba(228, 228, 231, 0.2);
+                        opacity: 0.5;
+                        border-radius: 35px;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        padding: 2px 13.5px;
+
+                        .coordinates {
+                            font-weight: 600;
+                            font-size: 12px;
+                            line-height: 20px;
+                            text-align: center;
+                            color: rgba(255, 255, 255, 0.8);
+                        }
+
+                    }
+
+                    .right {
+                        .type {
+                            font-weight: 400;
+                            font-size: 14px;
+                            line-height: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

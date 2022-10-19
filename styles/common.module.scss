@@ -1,0 +1,40 @@
+@import "./variables.scss";
+
+
+.sidebar_main_header {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 30px;
+    color: map-get($colors, "side-bar-main-header");
+}
+
+.category_type {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    margin: 0%;
+}
+.low {
+    background-color: map-get($colors, "light-green");
+}
+
+.moderate {
+    background-color: map-get($colors, "dark-yellow");
+}
+
+.high {
+    background-color: map-get($colors, "dark-red");
+}
+
+
+.low_color {
+    color: map-get($colors, "light-green");
+}
+
+.moderate_color {
+    color: map-get($colors, "dark-yellow");
+}
+
+.high_color {
+    color: map-get($colors, "dark-red");
+}

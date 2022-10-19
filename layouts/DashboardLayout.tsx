@@ -1,6 +1,10 @@
 // import Map from "../components/map/Map";
 import MapInfo from "../components/map/cards/MapInfo";
 import Map from "../components/map/Map";
+import StatisticsCard from "../components/sidebar/cards/categories/StatisticsCard";
+import RegionStats from "../components/sidebar/cards/region/RegionStats";
+import Detections from "../components/sidebar/detections";
+import SidebarHeader from "../components/sidebar/header";
 import styles from "./index.module.scss";
 
 const DashboardLayout = () => {
@@ -23,7 +27,12 @@ const DashboardLayout = () => {
             </div>
           </div>
         </div>
-        <div className={styles.right_side}></div>
+        <div className={styles.right_side}>
+          <SidebarHeader />
+          <StatisticsCard />
+          <RegionStats />
+          <Detections />
+        </div>
       </div>
     </div>
   );
