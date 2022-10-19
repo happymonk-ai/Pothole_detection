@@ -5,6 +5,7 @@ import StatisticsCard from "../components/sidebar/cards/categories/StatisticsCar
 import RegionStats from "../components/sidebar/cards/region/RegionStats";
 import Detections from "../components/sidebar/detections";
 import SidebarHeader from "../components/sidebar/header";
+import SearchBar from "../components/search/SearchBar";
 import styles from "./index.module.scss";
 
 const DashboardLayout = () => {
@@ -17,7 +18,9 @@ const DashboardLayout = () => {
         <div className={styles.left_side}>
           <div className={styles.content}>
             <div className={styles.left}>
-              <div className={styles.search_bar}></div>
+              <div className={styles.search_bar_container}>
+                <SearchBar />
+              </div>
               <div className={styles.videos}></div>
             </div>
             <div className={styles.right}>

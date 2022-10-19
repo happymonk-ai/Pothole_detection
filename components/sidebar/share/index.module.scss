@@ -10,7 +10,7 @@
         bottom: 0;
         margin: auto;
     padding: 34px 32px 52px 32px;
-    width: 576px;
+    width: fit-content;
         height: 251px;
     border-radius: 16px;
     display: flex;
@@ -19,18 +19,22 @@
 
     .top {
         display: flex;
-
+            display: flex;
+                align-items: center;
+                justify-content: center;
         .title {
-            font-weight: 600;
+            font-family: 'InterVariable', sans-serif;
+                font-weight: 600 !important;
             font-size: 16px;
             line-height: 20px;
-            color: map-get($colors, "light-gray");
+            color: map-get($colors, "light-blue");
             margin: 0%;
         }
 
         .icon_container {
             margin-left: auto;
-
+display: flex;
+    align-items: center;
             .icon {
                 cursor: pointer;
             }
@@ -59,8 +63,6 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-
-                .icon {}
             }
 
             .name {
