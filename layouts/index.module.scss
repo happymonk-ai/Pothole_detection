@@ -80,7 +80,7 @@
         }
 
         .right_side {
-            background-color: map-get($colors, "dark-blue");
+            background-color: map-get($colors, "bg-sidebar");
             -ms-overflow-style: none;
             scrollbar-width: none;
             width: 375px;

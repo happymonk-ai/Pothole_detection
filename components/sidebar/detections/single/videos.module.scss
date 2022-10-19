@@ -1,0 +1,21 @@
+.video_cards {
+    min-height: 190px;
+    width: auto;
+    display: flex;
+    gap: 10px;
+    overflow: scroll !important;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    .video_card {
+        height: 190px;
+        min-width: 328px !important;
+        border-radius: 0px;
+        background-color: gray !important;
+    }
+}
