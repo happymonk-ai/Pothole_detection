@@ -1,0 +1,135 @@
+@import "../../styles/variables.scss";
+
+.uploader {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: map-get($colors, "tp-dark-gradient");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    pointer-events: all !important;
+}
+
+
+.container {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 565px;
+    width: 497px;
+    border-radius: 10px;
+    background-color: map-get($colors, "dark-blue");
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    padding: 14px 20px;
+    gap: 17px;
+
+    .heading {
+        display: flex;
+
+        .title {
+            margin: 0%;
+        }
+
+        .icon_container {
+            margin-left: auto;
+
+            .icon {
+                margin-left: auto;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .drop_zone {
+        height: 312px;
+        width: 457px;
+        border-radius: 10px;
+        opacity: 0.9;
+        border-radius: 10px;
+        background-color: map-get($colors, "light-gray");
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        .action {
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 24px;
+            color: rgba(1, 143, 106, 0.85);
+            margin: 0%;
+        }
+
+        .info {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 18px;
+            color: map-get($colors, "info-text");
+            margin: 0%;
+        }
+
+    }
+
+    .separator {
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .text_input_container {
+        .text_input {
+            height: 50px;
+            width: 457px;
+            border-radius: 10px;
+            background-color: map-get($colors , "input-fill");
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+            color: rgba(228, 228, 231, 0.4);
+            border: none;
+            outline: none;
+            padding: 14px 26px;
+
+            &::placeholder {
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 20px;
+                color: rgba(228, 228, 231, 0.4);
+            }
+        }
+    }
+
+    .footer {
+        .upload_button {
+            width: 100%;
+            height: 45px;
+            background-color: map-get($colors, "dark-green");
+            padding: 9px 14px;
+            background: rgba(1, 143, 106, 0.85);
+            opacity: 0.7;
+            border-radius: 4px;
+            border: none;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 18px;
+            color: map-get($colors, "light");
+            cursor: pointer;
+
+        }
+    }
+}
+
+.gray_title {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(228, 228, 231, 0.4);
+}

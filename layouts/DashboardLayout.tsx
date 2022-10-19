@@ -7,8 +7,14 @@ import Detections from "../components/sidebar/detections";
 import SidebarHeader from "../components/sidebar/header";
 import SearchBar from "../components/search/SearchBar";
 import styles from "./index.module.scss";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
+import DetectionDetails from "../components/sidebar/detections/single";
 
 const DashboardLayout = () => {
+  const { isDetailView, detection } = useSelector(
+    (state: RootState) => state.detections
+  );
   return (
     <div className={styles.dashboard_layout}>
       <div className={styles.map_content}>
@@ -31,10 +37,18 @@ const DashboardLayout = () => {
           </div>
         </div>
         <div className={styles.right_side}>
-          <SidebarHeader />
-          <StatisticsCard />
-          <RegionStats />
-          <Detections />
+          {(isDetailView && (
+            <div className={styles.detailsView}>
+              <DetectionDetails detection={detection} />
+            </div>
+          )) || (
+            <div className={styles.listView}>
+              <SidebarHeader />
+              <StatisticsCard />
+              <RegionStats />
+              <Detections />
+            </div>
+          )}
         </div>
       </div>
     </div>
