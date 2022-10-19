@@ -1,7 +1,9 @@
 import { combineReducers } from "redux";
-import authSlice from "./actions/authSlice";
+import sidebarShareSlice from "./actions/sidebarShareSlice";
+import sidebarDetectionsSlice from "./actions/detectionsSlice";
 
 // combine reducers
 export const rootReducer = combineReducers({
-  auth: authSlice,
+    share: sidebarShareSlice,
+    detections: sidebarDetectionsSlice
 });
