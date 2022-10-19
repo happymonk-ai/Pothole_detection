@@ -2,30 +2,33 @@
 
 .app_layout{
     background: map-get($colors , "dark" );
-    width: 100vw;
+    width: auto;
     height: 100vh;
     overflow: hidden;
+    padding: 20px 20px !important;
 }
 
 
 .dashboard_layout{
     .map_content{
-     height: 100vh;
-     z-index: 1;
-     display: none;
+        position: absolute;
+            height: 100vh;
+            width: calc(100vw - 40px);
+                z-index: 9;
     }
   .data_content{
     position: absolute;
-    z-index: 99;
+    z-index: 99 !important;
     height: map-get($heights, "container" );
     display: grid;
     grid-template-columns: auto 375px;
-    width: 100vw;
-    padding: 14px;
+    width: calc(100vw - 40px);
+    pointer-events: none;
+    overflow: hidden;
     .left_side{
-        .content{
-            display: grid;
-            grid-template-columns: auto 375px;
+        .content {
+                display: grid;
+                grid-template-columns: auto 375px;
             padding: 14px 14px 0px 14px;
             z-index: 999;
             .left::-webkit-scrollbar{
@@ -37,12 +40,14 @@
               -ms-overflow-style: none;
               scrollbar-width: none;
               .search_bar{
+                pointer-events: all !important;
                 height: 50px;
                 width: 288px;
                 border-radius: 10px;
                 background: map-get($colors, "tp-dark-gradient" );
               }
             .videos{
+                pointer-events: all !important;
                 height: 732px;
                 width: 246px;
                 margin-left: 4px;
@@ -53,6 +58,7 @@
             .right{
                 margin-left: auto;
                 height:  96px;
+                pointer-events: all !important;
               .map_info{
                 background: map-get($colors, "tp-dark-gradient" );
                 height: 96px;
@@ -65,19 +71,15 @@
                 display: none;
             }
             .right_side{
-            background-color: map-get($colors, "dark-blue" );
+                background: rgba(228, 228, 231, 0.2);
             -ms-overflow-style: none;
             scrollbar-width: none;
             width: 375px;
             margin-left: auto;
+            pointer-events: all !important;
             }
   }
 }
-
-
-
-
-
 
 @media screen and (max-width: 375px) {
     .dashboard_layout{

@@ -1,6 +1,6 @@
 /* COLORS */
 
-$colors:(
+$colors: (
     dark-red:#B74040,
     dark-yellow: #CA8A3F,
     light-yellow:#E0A515,
@@ -9,6 +9,7 @@ $colors:(
     light-red: #D73F35,
     x-light-red: #E0A515,
     light: #FFFFFF,
+                                silver: #E5E5E5,
     dark-green: #018F6AD9,
     dark: #1D1D20,
     dark-blue: #24262E,
@@ -18,8 +19,12 @@ $colors:(
     tp-light-blue: rgba(61, 90, 128, 0.5),
     tp-dark-green: rgba(1, 143, 106, 0.85),
     tp-dark-gray: rgba(46, 48, 52, 0.2),
+   box-color: #25262C,
     tp-gray: rgba(47, 47, 47, 0.47),
-    tp-dark-gradient: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.63) 100%) 
+bd-green: #018F6A,
+                                tp-dark-gradient: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.63) 100%),
+                                side-bar-main-header: rgba(228, 228, 231, 0.4)
+
 );
 
 
