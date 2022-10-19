@@ -1,0 +1,76 @@
+@import "../../../styles/variables.scss";
+
+.container {
+    position: absolute;
+    z-index: 999;
+    background: #E5E5E5;
+    right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    padding: 34px 32px 52px 32px;
+    width: 576px;
+        height: 251px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    .top {
+        display: flex;
+
+        .title {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 20px;
+            color: map-get($colors, "light-gray");
+            margin: 0%;
+        }
+
+        .icon_container {
+            margin-left: auto;
+
+            .icon {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .bottom {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+    
+
+        .share {
+            width: 72px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+            .icon_container {
+                width: 72px;
+                height: 72px;
+                background: rgba(157, 157, 157, 0.04);
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .icon {}
+            }
+
+            .name {
+                color: map-get($colors, "light-blue");
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 15px;
+            }
+
+
+        }
+    }
+}

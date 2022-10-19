@@ -22,7 +22,7 @@ import { rootReducer } from "./modules/rootReducer";
 const persistConfig = {
   key: "persist-root",
   storage,
-  blacklist: [],
+    blacklist: ["detections"],
   //   transforms: [
   //     encryptTransform({
   //       secretKey: process.env.NEXT_PUBLIC_REDUX_TRANSFORMER_KEY,

@@ -1,0 +1,21 @@
+@import "../../../styles/variables.scss";
+
+.container {
+    height: 47px;
+    background-color: map-get($colors, "dark-blue");
+    display: flex;
+    align-items: center;
+    padding: 10px 23px;
+
+    .left {
+        margin-right: auto;
+    }
+
+    .right {
+        margin-left: auto;
+
+        .icon {
+            cursor: pointer;
+        }
+    }
+}
