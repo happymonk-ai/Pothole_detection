@@ -21,6 +21,20 @@ import length_img from "../public/assets/length.svg";
 import width_img from "../public/assets/width.svg";
 import surface_img from "../public/assets/surface.svg";
 import severity_img from "../public/assets/severity.svg";
+import close_filled_icon from "../public/assets/close_filled.svg";
+import upload_img from "../public/assets/upload.svg";
+import delete_img from "../public/assets/delete.svg";
+import player_close_img from "../public/assets/player_close.svg";
+import player_mute_img from "../public/assets/player_mute.svg";
+import player_full_screen_img from "../public/assets/player_fullscreen.svg";
+import player_location_img from "../public/assets/player_location.svg";
+import gopro_img from "../public/assets/gopro_camera.svg";
+import ddpai_img from "../public/assets/ddpai_camera.svg";
+import gopro_inactive_img from "../public/assets/gopro_camera_inactive.svg";
+import ddpai_inactive_img from "../public/assets/ddpai_camera_inactive.svg";
+import delete_bold_img from "../public/assets/delete_bold.svg";
+import upload_back_img from "../public/assets/upload_back.svg";
+
 
 export const images = {
     share_green: share_green_img,
@@ -46,5 +60,19 @@ export const images = {
     length: length_img,
     width: width_img,
     surface: surface_img,
-    severity: severity_img
+    severity: severity_img,
+    close_filled: close_filled_icon,
+    upload: upload_img,
+    delete: delete_img,
+    player_close: player_close_img,
+    player_mute: player_mute_img,
+    player_full_screen: player_full_screen_img,
+    player_location: player_location_img,
+    gopro: gopro_img,
+    ddpai: ddpai_img,
+    gopro_inactive: gopro_inactive_img,
+    ddpai_inactive: ddpai_inactive_img,
+    delete_bold: delete_bold_img,
+    upload_back: upload_back_img
+
 }

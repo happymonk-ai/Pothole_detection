@@ -1,0 +1,10 @@
+.separator {
+  display: flex;
+  justify-content: center;
+  .or_text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(228, 228, 231, 0.4);
+  }
+}

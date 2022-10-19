@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { FC } from "react";
 import { images } from "../../../../constants/images";
-import { TDetection } from "../../../../redux/modules/actions/detectionsSlice";
+import { TDetection } from "../../../../redux/modules/slices/detectionsSlice";
 import { CategoryTypes } from "../../cards/categories/CategoryBox";
 import SidebarHeader from "../../header";
 import styles from "./index.module.scss";
