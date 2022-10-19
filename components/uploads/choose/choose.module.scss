@@ -1,0 +1,54 @@
+@import "../../../styles/variables.scss";
+.choose_camera {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  .top {
+    display: flex;
+    gap: 16px;
+    .card {
+      cursor: pointer;
+      .card_info {
+        .icon_container {
+          height: 114px;
+          width: 136px;
+          border-radius: 10px;
+          background: map-get($colors, "light-gray");
+          opacity: 0.9;
+          border-radius: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .active_icon_container {
+          border: 1px solid rgba(1, 143, 106, 0.85);
+        }
+
+        .type {
+          font-style: italic;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 20px;
+          color: rgba(228, 228, 231, 0.4);
+          transition: 0.2s ease-in-out;
+        }
+
+        .active_type {
+          transition: 0.2s ease-in-out;
+          color: map-get($colors, "details-sub-header") !important;
+        }
+      }
+    }
+  }
+
+  .bottom {
+    .note {
+      font-style: italic;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: rgba(228, 228, 231, 0.3);
+      margin: 0%;
+    }
+  }
+}

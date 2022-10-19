@@ -5,11 +5,13 @@ import StatisticsCard from "../components/sidebar/cards/categories/StatisticsCar
 import RegionStats from "../components/sidebar/cards/region/RegionStats";
 import Detections from "../components/sidebar/detections";
 import SidebarHeader from "../components/sidebar/header";
-import SearchBar from "../components/search/SearchBar";
+// import SearchBar from "../components/search/SearchBar";
 import styles from "./index.module.scss";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import DetectionDetails from "../components/sidebar/detections/single";
+import Uploader from "../components/uploads";
+import RecentVideos from "../components/videos/recent";
 
 const DashboardLayout = () => {
   const { isDetailView, detection } = useSelector(
@@ -24,10 +26,13 @@ const DashboardLayout = () => {
         <div className={styles.left_side}>
           <div className={styles.content}>
             <div className={styles.left}>
-              <div className={styles.search_bar_container}>
+              {/* <div className={styles.search_bar_container}>
                 <SearchBar />
+              </div> */}
+              <Uploader />
+              <div className={styles.videos}>
+                <RecentVideos />
               </div>
-              <div className={styles.videos}></div>
             </div>
             <div className={styles.right}>
               <div className={styles.map_info}>

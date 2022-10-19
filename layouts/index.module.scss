@@ -1,140 +1,152 @@
 @import "../styles/variables.scss";
 
 .app_layout {
-    background: map-get($colors , "dark");
-    width: auto;
-    height: 100vh;
-    overflow: hidden;
-    padding: 20px 20px !important;
+  background: map-get($colors, "dark");
+  width: auto;
+  height: 100vh;
+  overflow: hidden;
+  padding: 20px 20px !important;
 }
 
+.dialog {
+  transition: 0.3s ease-in-out;
+  background: map-get($colors, "tp-dialog-bg") !important;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 999 !important;
+}
 
 .dashboard_layout {
-    .map_content {
-        position: absolute;
-        height: 100vh;
-        width: calc(100vw - 40px);
-        z-index: 9;
-    }
+  .map_content {
+    position: absolute;
+    height: 100vh;
+    width: calc(100vw - 40px);
+    z-index: 9;
+  }
 
-    .data_content {
-        position: absolute;
-        z-index: 99 !important;
-        height: map-get($heights, "container");
+  .data_content {
+    position: absolute;
+    z-index: 99 !important;
+    height: map-get($heights, "container");
+    display: grid;
+    grid-template-columns: auto 375px;
+    width: calc(100vw - 40px);
+    pointer-events: none;
+    overflow: hidden;
+
+    .left_side {
+      .content {
         display: grid;
         grid-template-columns: auto 375px;
-        width: calc(100vw - 40px);
-        pointer-events: none;
-        overflow: hidden;
+        padding: 14px 14px 0px 14px;
+        z-index: 999;
 
-        .left_side {
-            .content {
-                display: grid;
-                grid-template-columns: auto 375px;
-                padding: 14px 14px 0px 14px;
-                z-index: 999;
-
-                .left::-webkit-scrollbar {
-                    display: none;
-                }
-
-                .left {
-                    overflow: scroll;
-                    padding-bottom: 2rem;
-                    -ms-overflow-style: none;
-                    scrollbar-width: none;
-
-                    .search_bar_container {
-                        height: 50px;
-                        width: 288px;
-                        border-radius: 10px;
-                        pointer-events: all !important;
-                    }
-
-                    .videos {
-                        pointer-events: all !important;
-                        height: 732px;
-                        width: 246px;
-                        margin-left: 4px;
-                        margin-top: 82px;
-                        background-color: map-get($colors, "tp-gray");
-                    }
-                }
-
-                .right {
-                    margin-left: auto;
-                    height: 96px;
-                    pointer-events: all !important;
-
-                    .map_info {
-                        background: map-get($colors, "tp-dark-gradient");
-                        height: 96px;
-                        width: 283px;
-                    }
-                }
-            }
+        .left::-webkit-scrollbar {
+          display: none;
         }
 
-        .right_side::-webkit-scrollbar {
-            display: none;
-        }
+        .left {
+          overflow: scroll;
+          padding-bottom: 2rem;
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
 
-        .right_side {
-            background-color: map-get($colors, "bg-sidebar");
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-            width: 375px;
-            margin-left: auto;
+          .search_bar_container {
+            height: 50px;
+            width: 288px;
+            border-radius: 10px;
             pointer-events: all !important;
+          }
+
+          .videos {
+            position: absolute;
+            pointer-events: all !important;
+            height: 732px;
+            width: 246px;
+            margin-left: 4px;
+            background-color: map-get($colors, "tp-gray");
+            bottom: 14px;
+            padding: 21px 24px;
+          }
         }
+
+        .right {
+          margin-left: auto;
+          height: 96px;
+          pointer-events: all !important;
+
+          .map_info {
+            background: map-get($colors, "tp-dark-gradient");
+            height: 96px;
+            width: 283px;
+          }
+        }
+      }
     }
+
+    .right_side::-webkit-scrollbar {
+      display: none;
+    }
+
+    .right_side {
+      background-color: map-get($colors, "bg-sidebar");
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      width: 375px;
+      margin-left: auto;
+      pointer-events: all !important;
+    }
+  }
 }
 
 @media screen and (max-width: 375px) {
-    .dashboard_layout {
-        .data_content {
-            display: grid;
-            grid-template-columns: none;
-            grid-template-rows: 50vh 50vh;
-            height: 100vh;
-            padding: 0% !important;
-            margin: 0 !important;
+  .dashboard_layout {
+    .data_content {
+      display: grid;
+      grid-template-columns: none;
+      grid-template-rows: 50vh 50vh;
+      height: 100vh;
+      padding: 0% !important;
+      margin: 0 !important;
 
-            .left_side {
-                .content {
-                    display: flex;
+      .left_side {
+        .content {
+          display: flex;
 
-                    .left {
+          .left {
+            width: max-content !important;
 
-                        width: max-content !important;
-
-                        .search_bar_container {
-                            width: 30px !important;
-                            height: 30px;
-                        }
-
-                        .videos {
-                            display: none;
-                        }
-                    }
-
-                    .right {
-                        height: 61px;
-                        margin-right: 6px;
-
-                        .map_info {
-                            height: 61px;
-                            width: 142px;
-                        }
-                    }
-                }
+            .search_bar_container {
+              width: 30px !important;
+              height: 30px;
             }
 
-            .right_side {
-                height: 50vh !important;
-                width: 100vw;
-                margin-left: 0%;
+            .videos {
+              display: none;
             }
+          }
+
+          .right {
+            height: 61px;
+            margin-right: 6px;
+
+            .map_info {
+              height: 61px;
+              width: 142px;
+            }
+          }
         }
+      }
+
+      .right_side {
+        height: 50vh !important;
+        width: 100vw;
+        margin-left: 0%;
+      }
     }
+  }
 }

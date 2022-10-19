@@ -22,7 +22,7 @@ import { rootReducer } from "./modules/rootReducer";
 const persistConfig = {
   key: "persist-root",
   storage,
-    blacklist: ["detections"],
+  blacklist: ["detections", "uploader", "player"],
   //   transforms: [
   //     encryptTransform({
   //       secretKey: process.env.NEXT_PUBLIC_REDUX_TRANSFORMER_KEY,
@@ -35,7 +35,7 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const store = configureStore({
+export const store = configureStore({
   reducer: persistedReducer,
   devTools: process.env.NODE_ENV === "development",
   middleware: (getDefaultMiddleware) =>
@@ -54,7 +54,6 @@ const store = configureStore({
 
 setupListeners(store.dispatch);
 
-export default store;
 export type RootState = ReturnType<typeof store.getState>;
 
 export const persistor = persistStore(store);
