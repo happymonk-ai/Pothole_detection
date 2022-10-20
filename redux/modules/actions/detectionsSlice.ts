@@ -3,17 +3,21 @@ import { CategoryTypes } from '../../../components/sidebar/cards/categories/Cate
 
 
 
+export type TDetection = {
+    type: CategoryTypes;
+    name: string;
+    coordinates: string;
+    time: string;
+    videos?: Array<{
+        url: string;
+    }>
+}
+
 
 export interface IDetectionsCard {
-    detections: Array<{
-        type: CategoryTypes;
-        name: string;
-        coordinates: string;
-        time: string;
-        videos?: Array<{
-            url: string;
-        }>;
-    }>
+    detections: Array<TDetection>;
+    detection: TDetection;
+    isDetailView: boolean
 }
 
 // Initial state
@@ -42,7 +46,14 @@ const initialState: IDetectionsCard = {
             time: "12:35 PM",
             videos: [{ url: "" }]
         }
-    ]
+    ],
+    detection: {
+        name: "",
+        type: CategoryTypes.high,
+        time: "",
+        coordinates: ""
+    },
+    isDetailView: false
 }
 // Actual Slice
 export const sidebarDetectionsSlice = createSlice({
@@ -52,9 +63,16 @@ export const sidebarDetectionsSlice = createSlice({
         setSidebarDetections(state, action) {
             state.detections = action.payload;
         },
+        setDetection(state, action) {
+            state.detection = action.payload
+        }
+        ,
+        setDetailView(state, action) {
+            state.isDetailView = action.payload
+        }
     },
 });
 
-export const { setSidebarDetections } = sidebarDetectionsSlice.actions;
+export const { setSidebarDetections, setDetection, setDetailView } = sidebarDetectionsSlice.actions;
 
 export default sidebarDetectionsSlice.reducer;
