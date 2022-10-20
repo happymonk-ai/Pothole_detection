@@ -5,6 +5,12 @@ import { CategoryTypes } from "../../cards/categories/CategoryBox";
 import styles from "./index.module.scss";
 import common_tyles from "../../../../styles/common.module.scss";
 import VideoCards from "../videos";
+import {
+  setDetailView,
+  setDetection,
+  TDetection,
+} from "../../../../redux/modules/actions/detectionsSlice";
+import { useDispatch } from "react-redux";
 
 export interface IDetectionsCardProps {
   data: Array<{
@@ -19,6 +25,12 @@ export interface IDetectionsCardProps {
 }
 
 const LocationCard: FC<IDetectionsCardProps> = ({ data }) => {
+  const dispatch = useDispatch();
+
+  const handleDetection = (detection: TDetection) => {
+    dispatch(setDetection(detection));
+    dispatch(setDetailView(true));
+  };
   return (
     <React.Fragment>
       {data.map(({ name, time, type, coordinates }) => (
@@ -40,7 +52,17 @@ const LocationCard: FC<IDetectionsCardProps> = ({ data }) => {
             />
           </div>
           <div className={styles.right}>
-            <div className={styles.top}>
+            <div
+              className={styles.top}
+              onClick={() =>
+                handleDetection({
+                  name,
+                  type,
+                  time,
+                  coordinates,
+                })
+              }
+            >
               <div className={styles.heading}>
                 <h2 className={styles.title}>{name}</h2>
                 <span className={styles.time}>{time}</span>

@@ -15,6 +15,12 @@ import low_icon from "../public/assets/low_icon.svg";
 import high_icon from "../public/assets/high_icon.svg";
 import moderate_icon from "../public/assets/moderate_icon.svg";
 import search_img from "../public/assets/search.png";
+import arrow_left_img from "../public/assets/arrow-left.svg";
+import perimeter_img from "../public/assets/perimeter.svg";
+import length_img from "../public/assets/length.svg";
+import width_img from "../public/assets/width.svg";
+import surface_img from "../public/assets/surface.svg";
+import severity_img from "../public/assets/severity.svg";
 
 export const images = {
     share_green: share_green_img,
@@ -34,5 +40,11 @@ export const images = {
     high_icon: high_icon,
     moderate_icon: moderate_icon,
     low_icon: low_icon,
-    search: search_img
+    search: search_img,
+    arrow_left: arrow_left_img,
+    perimeter: perimeter_img,
+    length: length_img,
+    width: width_img,
+    surface: surface_img,
+    severity: severity_img
 }

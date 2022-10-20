@@ -5,7 +5,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import store, { persistor } from "../redux/store";
 import "../styles/globals.scss";
 import AppLayout from "../layouts/AppLayout";
-import "@fontsource/inter";
+import "@fontsource/inter/";
 
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {

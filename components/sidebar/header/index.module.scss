@@ -9,6 +9,12 @@
 
     .left {
         margin-right: auto;
+        display: flex;
+            gap: 14px;
+        
+            .icon {
+                cursor: pointer;
+            }
     }
 
     .right {
