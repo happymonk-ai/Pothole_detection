@@ -81,8 +81,8 @@
 
           .map_info {
             background: map-get($colors, "tp-dark-gradient");
-            height: 96px;
-            width: 283px;
+            max-height: 120px;
+            max-width: 350px;
           }
         }
       }

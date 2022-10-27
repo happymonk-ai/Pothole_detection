@@ -29,7 +29,7 @@ const UploadProgress: FC<IUploadProgress> = ({ error, fileName }) => {
         </div>
         <div
           className={styles.progress_bar}
-          style={{ width: `${(progress * 445) / 100}px` }}
+          style={{ width: `${(progress * 455) / 100}px` }}
         ></div>
       </div>
 
