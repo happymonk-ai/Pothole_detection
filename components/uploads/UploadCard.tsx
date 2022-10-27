@@ -30,6 +30,7 @@ import FilesPreview from "./preview/FilesPreview";
 import DdpaiSelector from "./ddpai/DdpaiSelector";
 // import OrSeparator from "./or";
 import SelectedFiles from "./ddpai/SelectedFiles";
+import UploadLoader from "./UploadLoader";
 
 export interface FileContent {
   lastModified: number;
@@ -47,6 +48,7 @@ const UploaderCard = () => {
     ddpaiFiles,
     uploaded_gopro,
     uploaded_ddpai,
+    delete_status,
   } = useSelector((state: RootState) => state.uploader);
 
   const dispatch = useDispatch();
@@ -158,28 +160,33 @@ const UploaderCard = () => {
             isDisabled={button_status}
           />
         </div>
-        {/* {status === "loading" && (
+        {delete_status === "loading" && (
           <div className={styles.upload_loader}>
             <UploadLoader />
           </div>
-        )} */}
+        )}
 
         {/* <OrSeparator />
         <LinkPaste /> */}
         {step === 1 && type === cameraTypes.ddpai && <SelectedFiles />}
 
-        {step === 1 && type === cameraTypes.gopro && status === "loading" && (
+        {step === 1 && type === cameraTypes.gopro && (
           <UploadProgress
             error={error || status === "failed"}
             fileName={fileName}
           />
         )}
-        {step === 1 && status === "succeeded" && (
-          <FilesPreview
-            files={type === cameraTypes.gopro ? uploaded_gopro : uploaded_ddpai}
-            handleRemove={handleRemoveFile}
-          />
-        )}
+        {(step === 1 &&
+          status === "succeeded" &&
+          (uploaded_ddpai.length || uploaded_gopro.length) && (
+            <FilesPreview
+              files={
+                type === cameraTypes.gopro ? uploaded_gopro : uploaded_ddpai
+              }
+              handleRemove={handleRemoveFile}
+            />
+          )) ||
+          null}
       </div>
     </DialogLayout>
   );

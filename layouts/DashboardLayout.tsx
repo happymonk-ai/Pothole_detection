@@ -17,11 +17,10 @@ const DashboardLayout = () => {
   const { isDetailView, detection } = useSelector(
     (state: RootState) => state.detections
   );
+
   return (
     <div className={styles.dashboard_layout}>
-      <div className={styles.map_content}>
-        <Map />
-      </div>
+      <Map />
       <div className={styles.data_content}>
         <div className={styles.left_side}>
           <div className={styles.content}>

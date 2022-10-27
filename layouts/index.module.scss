@@ -18,13 +18,6 @@
 }
 
 .dashboard_layout {
-  .map_content {
-    position: absolute;
-    height: 100vh;
-    width: calc(100vw - 40px);
-    z-index: 9;
-  }
-
   .data_content {
     position: absolute;
     z-index: 99 !important;
@@ -75,14 +68,15 @@
         }
 
         .right {
+          position: relative;
           margin-left: auto;
-          height: 96px;
-          pointer-events: all !important;
-
+          height: 100vh;
+          pointer-events: none !important;
           .map_info {
             background: map-get($colors, "tp-dark-gradient");
-            height: 96px;
-            width: 283px;
+            max-height: 120px;
+            max-width: 350px;
+            pointer-events: all !important;
           }
         }
       }

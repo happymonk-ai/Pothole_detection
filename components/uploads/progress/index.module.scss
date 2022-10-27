@@ -2,6 +2,7 @@
 
 .upload_progress {
   height: 100px;
+  min-width: 445px;
 
   .title {
     font-weight: 700;
@@ -22,10 +23,11 @@
     align-items: center;
 
     .status {
-      width: 445px;
+      min-width: 455px;
       display: flex;
       justify-content: space-between;
       padding-left: 10px;
+      padding-right: 5px;
 
       .file_name {
         font-weight: 400;

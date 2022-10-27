@@ -10,7 +10,7 @@ const VideoCards = () => {
       {detections.map(() => (
         <VideoPlayer
           key={Math.random()}
-          url="https://drive.google.com/uc?export=download&id=1M1G6EJ58hWoFJ_JyTqPQlT_ujMTUgdum"
+          url="https://detectron.ckdr.co.in/uploads/ddpai_x2pro/1666871464596/20220922201629_0054_1666871464597.mp4"
           className={styles.player}
         />
       ))}

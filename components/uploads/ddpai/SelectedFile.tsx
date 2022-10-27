@@ -43,13 +43,12 @@ const SelectedFile: FC<FileProps> = ({ name, handleRemove, title }) => {
           onClick={handleRemove}
         />
       </div>
-      {status === "loading" ||
-        (status === "succeeded" && (
-          <div
-            className={styles.progress_bar}
-            style={{ width: `${(progress * 196) / 100}px` }}
-          ></div>
-        ))}
+      {status === "loading" && (
+        <div
+          className={styles.progress_bar}
+          style={{ width: `${(progress * 196) / 100}px` }}
+        ></div>
+      )}
     </div>
   );
 };
