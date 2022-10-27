@@ -1,0 +1,14 @@
+@import "../../../styles/variables.scss";
+
+.gopro_uploader {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.gray_title {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(228, 228, 231, 0.4);
+}

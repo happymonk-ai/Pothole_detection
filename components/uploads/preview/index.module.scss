@@ -1,0 +1,78 @@
+@import "../../../styles/variables.scss";
+
+.uploaded {
+  // height: 100px;
+
+  .files_preview {
+    min-width: auto;
+    display: flex;
+    gap: 8px;
+
+    .pair_container {
+      height: 43px !important;
+      background: rgba(0, 0, 0, 0.36);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      padding-left: 6px;
+      padding-right: 6px;
+      .el_container {
+        height: 29px !important;
+      }
+    }
+
+    .file_container {
+      display: flex;
+      gap: 12px;
+      height: 36px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      background: rgba(43, 45, 53, 0.6);
+      border-radius: 4px;
+      padding: 0% 10px;
+      width: max-content;
+
+      .icon_container {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .icon {
+        cursor: pointer;
+      }
+
+      .name {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+        color: rgba(228, 228, 231, 0.6);
+      }
+    }
+  }
+  .title {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgba(228, 228, 231, 0.6);
+  }
+
+  .choosen_files {
+    // height: 30px;
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

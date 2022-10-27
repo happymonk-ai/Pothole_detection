@@ -1,0 +1,45 @@
+@import "../../styles/variables.scss";
+
+.controls_container {
+  height: 58px;
+  width: 1198px;
+  border-radius: 0px;
+  background-color: map-get($colors, "bg-controls");
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 40px;
+  margin-top: -58px;
+  mix-blend-mode: normal;
+  opacity: 0.6;
+
+  .left {
+    display: flex;
+    gap: 10px;
+    .info {
+      .full_address {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 20px;
+        color: rgba(228, 228, 231, 0.4);
+        margin: 0%;
+      }
+      .region {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 20px;
+        color: rgba(228, 228, 231, 0.6);
+        margin: 0%;
+      }
+    }
+  }
+
+  .right {
+    margin-left: auto;
+    display: flex;
+    gap: 48px;
+    .icon {
+      cursor: pointer;
+    }
+  }
+}

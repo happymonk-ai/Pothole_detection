@@ -9,7 +9,7 @@ import {
   setDetailView,
   setDetection,
   TDetection,
-} from "../../../../redux/modules/actions/detectionsSlice";
+} from "../../../../redux/modules/slices/detectionsSlice";
 import { useDispatch } from "react-redux";
 
 export interface IDetectionsCardProps {
@@ -34,7 +34,18 @@ const LocationCard: FC<IDetectionsCardProps> = ({ data }) => {
   return (
     <React.Fragment>
       {data.map(({ name, time, type, coordinates }) => (
-        <div className={styles.container} key={Math.random()}>
+        <div
+          className={styles.container}
+          key={Math.random()}
+          onClick={() =>
+            handleDetection({
+              name,
+              type,
+              time,
+              coordinates,
+            })
+          }
+        >
           <div className={styles.left}>
             <Image
               src={
@@ -52,17 +63,7 @@ const LocationCard: FC<IDetectionsCardProps> = ({ data }) => {
             />
           </div>
           <div className={styles.right}>
-            <div
-              className={styles.top}
-              onClick={() =>
-                handleDetection({
-                  name,
-                  type,
-                  time,
-                  coordinates,
-                })
-              }
-            >
+            <div className={styles.top}>
               <div className={styles.heading}>
                 <h2 className={styles.title}>{name}</h2>
                 <span className={styles.time}>{time}</span>

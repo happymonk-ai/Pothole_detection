@@ -1,0 +1,27 @@
+.fullscreen_container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transform: translateY(-50%);
+  max-height: 720px;
+  max-width: 1198px;
+  min-height: 720px;
+  .player_fullscreen {
+    max-height: 720px;
+    max-width: 1198px;
+    min-height: 720px;
+    border-radius: 0px;
+  }
+  .close_container {
+    position: absolute;
+    left: calc(100% - 55px);
+    padding-top: 41px;
+    .close_icon {
+      margin-left: auto;
+      cursor: pointer;
+      z-index: 2;
+    }
+  }
+}

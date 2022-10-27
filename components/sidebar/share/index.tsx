@@ -1,15 +1,13 @@
 import Image from "next/image";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { images } from "../../../constants/images";
-import { setSidebarShareIsOpen } from "../../../redux/modules/actions/sidebarShareSlice";
-import { RootState } from "../../../redux/store";
+import DialogLayout from "../../../layouts/DialogLayout";
+import { setSidebarShareIsOpen } from "../../../redux/modules/slices/sidebarShareSlice";
 import styles from "./index.module.scss";
 import Share, { TShareProps } from "./Share";
 
 const ShareSidebar = () => {
-  const { isOpen } = useSelector((state: RootState) => state.share);
-
   const dispatch = useDispatch();
 
   const [active, setActive] = useState<TShareProps>({ name: "", icon: "" });
@@ -18,8 +16,6 @@ const ShareSidebar = () => {
     console.log(active);
     setActive(share);
   };
-
-  console.log(isOpen);
 
   const shares: Array<TShareProps> = [
     {
@@ -56,26 +52,31 @@ const ShareSidebar = () => {
     dispatch(setSidebarShareIsOpen(false));
   };
   return (
-    <div className={styles.container}>
-      <div className={styles.top}>
-        <h1 className={styles.title}>Share with</h1>
-        <div className={styles.icon_container}>
-          <Image
-            src={images.close}
-            alt=""
-            className={styles.icon}
-            onClick={handleClose}
-          />
+    <DialogLayout>
+      <div className={styles.container}>
+        <div className={styles.top}>
+          <h1 className={styles.title}>Share with</h1>
+          <div className={styles.icon_container}>
+            <Image
+              src={images.close}
+              alt=""
+              className={styles.icon}
+              onClick={handleClose}
+            />
+          </div>
+        </div>
+        <div className={styles.bottom}>
+          {shares.map(({ name, icon }) => (
+            <div
+              onClick={() => handleActive({ name, icon })}
+              key={Math.random()}
+            >
+              <Share name={name} icon={icon} />
+            </div>
+          ))}
         </div>
       </div>
-      <div className={styles.bottom}>
-        {shares.map(({ name, icon }) => (
-          <div onClick={() => handleActive({ name, icon })} key={Math.random()}>
-            <Share name={name} icon={icon} />
-          </div>
-        ))}
-      </div>
-    </div>
+    </DialogLayout>
   );
 };
 

@@ -3,9 +3,9 @@ import { images } from "../../../constants/images";
 import styles from "./index.module.scss";
 import common_styles from "../../../styles/common.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { setSidebarShareIsOpen } from "../../../redux/modules/actions/sidebarShareSlice";
+import { setSidebarShareIsOpen } from "../../../redux/modules/slices/sidebarShareSlice";
 import { RootState } from "../../../redux/store";
-import { setDetailView } from "../../../redux/modules/actions/detectionsSlice";
+import { setDetailView } from "../../../redux/modules/slices/detectionsSlice";
 
 const SidebarHeader = () => {
   const { isDetailView } = useSelector((state: RootState) => state.detections);
