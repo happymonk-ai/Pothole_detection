@@ -37,7 +37,7 @@ const CameraCard: FC<ICameraProps> = ({ type, handleActive, active }) => {
             active && styles.active_icon_container
           }`}
         >
-          <Image src={icon} alt="" />
+          <Image src={icon} alt="" priority={true} />
         </div>
         <h2 className={`${styles.type} ${active && styles.active_type}`}>
           {(type === cameraTypes.gopro && "GoPro") || "DDPAI"}

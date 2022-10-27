@@ -9,10 +9,11 @@
   max-width: 1198px;
   min-height: 720px;
   .player_fullscreen {
-    max-height: 720px;
+    max-height: 662px !important;
     max-width: 1198px;
-    min-height: 720px;
+    min-height: 662px !important;
     border-radius: 0px;
+    background-color: rgba($color: #000000, $alpha: 0.6);
   }
   .close_container {
     position: absolute;

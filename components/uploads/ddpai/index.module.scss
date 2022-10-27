@@ -16,6 +16,20 @@
     color: rgba(228, 228, 231, 0.3);
   }
 
+  .error_container {
+    margin-top: 15px;
+    .error {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: map-get($colors, "error-text");
+      margin: 0%;
+    }
+  }
+
   .mp4 {
     margin-right: auto !important;
     float: left;

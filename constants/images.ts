@@ -34,6 +34,10 @@ import gopro_inactive_img from "../public/assets/gopro_camera_inactive.svg";
 import ddpai_inactive_img from "../public/assets/ddpai_camera_inactive.svg";
 import delete_bold_img from "../public/assets/delete_bold.svg";
 import upload_back_img from "../public/assets/upload_back.svg";
+import plus_icon from "../public/assets/plus_icon.svg";
+import minus_icon from "../public/assets/minus_icon.svg";
+import frame_img from "../public/assets/video_frame.png";
+import high_pin from "../public/assets/high_pin.svg";
 
 
 export const images = {
@@ -73,6 +77,10 @@ export const images = {
     gopro_inactive: gopro_inactive_img,
     ddpai_inactive: ddpai_inactive_img,
     delete_bold: delete_bold_img,
-    upload_back: upload_back_img
+    upload_back: upload_back_img,
+    plus: plus_icon,
+    minus: minus_icon,
+    frame: frame_img,
+    high_pin: high_pin
 
 }

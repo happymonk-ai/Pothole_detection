@@ -12,7 +12,7 @@ export enum CategoryTypes {
 
 type TBoxProps = {
   type: CategoryTypes;
-  amount: string;
+  amount: string | number;
   handleClick: () => void;
   highlight: boolean;
 };

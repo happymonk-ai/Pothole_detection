@@ -6,7 +6,6 @@ import styles from "./index.module.scss";
 interface IButtonProps {
   isDisabled: boolean;
   handleClick: () => void;
-  files: FileList | undefined;
 }
 
 const UploadButton: FC<IButtonProps> = ({ isDisabled, handleClick }) => {

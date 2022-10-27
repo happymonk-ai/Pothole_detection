@@ -28,20 +28,21 @@ const FilesPreview: FC<TPreviewProps> = ({ files }) => {
 
   return (
     <div className={styles.uploaded}>
-      <h2 className={styles.title}>Uploaded</h2>
+      {files.length ? <h2 className={styles.title}>Uploaded</h2> : null}
       <div className={styles.choosen_files}>
         <div className={styles.files_preview}>
           {files?.map(
             (file: File | undefined) =>
               (type === cameraTypes.gopro && (
                 <div className={styles.file_container} key={Math.random()}>
-                  <h2 className={styles.name}>{file?.originalname}</h2>
+                  <h2 className={styles.name}>{file?.name}</h2>
                   <div className={styles.icon_container}>
                     <Image
                       src={images.delete_bold}
                       alt=""
                       className={styles.icon}
                       onClick={() => handleDelete(file)}
+                      priority={true}
                     />
                   </div>
                 </div>
@@ -52,13 +53,14 @@ const FilesPreview: FC<TPreviewProps> = ({ files }) => {
                       className={`${styles.file_container} ${styles.el_container}`}
                       key={Math.random()}
                     >
-                      <h2 className={styles.name}>{el?.originalname}</h2>
+                      <h2 className={styles.name}>{el?.name}</h2>
                       <div className={styles.icon_container}>
                         <Image
                           src={images.delete_bold}
                           alt=""
                           className={styles.icon}
                           onClick={() => handleDelete(file)}
+                          priority={true}
                         />
                       </div>
                     </div>

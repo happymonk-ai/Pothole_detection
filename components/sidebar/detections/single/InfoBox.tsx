@@ -24,7 +24,12 @@ const InfoBox: FC<InfoBoxProps> = ({ type, info }) => {
   return (
     <div className={styles.info_box}>
       <div className={styles.icon_container}>
-        <Image src={images[icon]} alt="" className={styles.icon} />
+        <Image
+          src={images[icon]}
+          alt=""
+          className={styles.icon}
+          priority={true}
+        />
       </div>
 
       <span className={styles.type}>{type}</span>

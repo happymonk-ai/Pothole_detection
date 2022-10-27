@@ -7,6 +7,7 @@ import { images } from "../../constants/images";
 import DialogLayout from "../../layouts/DialogLayout";
 import {
   changeStep,
+  deleteGoProFile,
   resetUploader,
   // setSelectedFiles,
 } from "../../redux/modules/slices/uploaderSlice";
@@ -22,7 +23,6 @@ import {
 import { RootState } from "../../redux/store";
 import ChooseCamera from "./choose/ChooseCamera";
 import GoProUploader from "./gopro";
-import { useState } from "react";
 import { cameraTypes } from "./choose/CameraCard";
 import UploadProgress from "./progress";
 import FilesPreview from "./preview/FilesPreview";
@@ -30,6 +30,7 @@ import FilesPreview from "./preview/FilesPreview";
 import DdpaiSelector from "./ddpai/DdpaiSelector";
 // import OrSeparator from "./or";
 import SelectedFiles from "./ddpai/SelectedFiles";
+import UploadLoader from "./UploadLoader";
 
 export interface FileContent {
   lastModified: number;
@@ -47,27 +48,22 @@ const UploaderCard = () => {
     ddpaiFiles,
     uploaded_gopro,
     uploaded_ddpai,
+    delete_status,
   } = useSelector((state: RootState) => state.uploader);
 
   const dispatch = useDispatch();
 
   const generalInputRef = useRef(null);
-  const inputRef = useRef(null);
   const handleClose = () => {
     dispatch(resetUploader());
   };
-
-  const [files, setFiles] = useState<FileList>();
 
   const handleSelectedFiles = (e: any) => {
     dispatch(uploadFiles(e));
   };
 
   const handleRemoveFile = (file: FileList) => {
-    const filtered = files.filter((el: any) => el.name !== file);
-
-    inputRef.current.value = null;
-    setFiles(filtered);
+    dispatch(deleteGoProFile(file?.name));
   };
 
   useEffect(() => {
@@ -83,13 +79,7 @@ const UploaderCard = () => {
     "Upload Video";
 
   const button_status =
-    step === 0 && !type?.length
-      ? true
-      : step === 1 && !files?.length
-      ? true
-      : step === 1 && status === "loading"
-      ? true
-      : false;
+    step === 0 && !type?.length ? true : step === 1 ? true : false;
 
   const handleButtonClick = () => {
     switch (step) {
@@ -127,6 +117,7 @@ const UploaderCard = () => {
                 alt=""
                 onClick={handleBack}
                 className={styles.back_icon}
+                priority={true}
               />
             </div>
           )}
@@ -137,6 +128,7 @@ const UploaderCard = () => {
               alt=""
               className={styles.icon}
               onClick={handleClose}
+              priority={true}
             />
           </div>
         </div>
@@ -152,34 +144,38 @@ const UploaderCard = () => {
         {step === 0 && <ChooseCamera />}
         <div className={styles.footer}>
           <UploadButton
-            files={files}
             // isDisabled={!files?.length || status === "loading"}
             handleClick={handleButtonClick}
             isDisabled={button_status}
           />
         </div>
-        {/* {status === "loading" && (
+        {delete_status === "loading" && (
           <div className={styles.upload_loader}>
             <UploadLoader />
           </div>
-        )} */}
+        )}
 
         {/* <OrSeparator />
         <LinkPaste /> */}
         {step === 1 && type === cameraTypes.ddpai && <SelectedFiles />}
 
-        {step === 1 && type === cameraTypes.gopro && status === "loading" && (
+        {step === 1 && type === cameraTypes.gopro && (
           <UploadProgress
             error={error || status === "failed"}
             fileName={fileName}
           />
         )}
-        {step === 1 && status === "succeeded" && (
-          <FilesPreview
-            files={type === cameraTypes.gopro ? uploaded_gopro : uploaded_ddpai}
-            handleRemove={handleRemoveFile}
-          />
-        )}
+        {(step === 1 &&
+          status === "succeeded" &&
+          (uploaded_ddpai.length || uploaded_gopro.length) && (
+            <FilesPreview
+              files={
+                type === cameraTypes.gopro ? uploaded_gopro : uploaded_ddpai
+              }
+              handleRemove={handleRemoveFile}
+            />
+          )) ||
+          null}
       </div>
     </DialogLayout>
   );

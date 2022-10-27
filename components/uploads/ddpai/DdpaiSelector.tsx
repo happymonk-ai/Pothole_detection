@@ -24,7 +24,7 @@ const DdpaiSelector: FC<IUploaderProps> = () => {
   };
 
   const handleGpx = (files: FileList) => {
-    if (files[0] && files[0]?.name?.includes(".gpx")) {
+    if (files[0] && files[0]?.name?.toLowerCase().includes(".gpx")) {
       dispatch(setDdpaiFiles({ mp4: ddpaiFiles.mp4, gpx: files[0] }));
     }
   };

@@ -1,27 +1,24 @@
-// import Map from "../components/map/Map";
-import MapInfo from "../components/map/cards/MapInfo";
 import Map from "../components/map/Map";
-import StatisticsCard from "../components/sidebar/cards/categories/StatisticsCard";
-import RegionStats from "../components/sidebar/cards/region/RegionStats";
-import Detections from "../components/sidebar/detections";
-import SidebarHeader from "../components/sidebar/header";
-// import SearchBar from "../components/search/SearchBar";
+import MapInfo from "../components/map/cards/MapInfo";
 import styles from "./index.module.scss";
-import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
+import { useDispatch } from "react-redux";
 import DetectionDetails from "../components/sidebar/detections/single";
 import Uploader from "../components/uploads";
 import RecentVideos from "../components/videos/recent";
+import { useEffect } from "react";
+import { getMapData } from "../redux/modules/actions/uploads";
+import DefaultSidebarView from "../components/sidebar/DefaultSidebarView";
 
 const DashboardLayout = () => {
-  const { isDetailView, detection } = useSelector(
-    (state: RootState) => state.detections
-  );
+  const dispatch = useDispatch<any>();
+
+  useEffect(() => {
+    dispatch(getMapData());
+  }, []);
+
   return (
     <div className={styles.dashboard_layout}>
-      <div className={styles.map_content}>
-        <Map />
-      </div>
+      <Map />
       <div className={styles.data_content}>
         <div className={styles.left_side}>
           <div className={styles.content}>
@@ -42,18 +39,10 @@ const DashboardLayout = () => {
           </div>
         </div>
         <div className={styles.right_side}>
-          {(isDetailView && (
-            <div className={styles.detailsView}>
-              <DetectionDetails detection={detection} />
-            </div>
-          )) || (
-            <div className={styles.listView}>
-              <SidebarHeader />
-              <StatisticsCard />
-              <RegionStats />
-              <Detections />
-            </div>
-          )}
+          <div className={styles.detailsView}>
+            <DetectionDetails />
+          </div>
+          <DefaultSidebarView />
         </div>
       </div>
     </div>

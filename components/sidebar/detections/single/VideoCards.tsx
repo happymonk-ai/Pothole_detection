@@ -1,16 +1,26 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../../../../redux/store";
-import VideoPlayer from "../../../players/VideoPlayer";
+// import VideoPlayer from "../../../players/VideoPlayer";
 import styles from "./videos.module.scss";
 
-const VideoCards = () => {
-  const { detections } = useSelector((state: RootState) => state.detections);
+const VideoCards = ({ frames }: { frames: any[] }) => {
   return (
     <div className={styles.video_cards}>
-      {detections.map(() => (
-        <VideoPlayer
+      {frames?.map((frame: string) => (
+        // <VideoPlayer
+        //   key={Math.random()}
+        //   url="https://detectron.ckdr.co.in/uploads/ddpai_x2pro/1666871464596/20220922201629_0054_1666871464597.mp4"
+        //   className={styles.player}
+        // />
+        <img
+          src={
+            frame
+              ? frame.replace(
+                  "./output/",
+                  `${process.env.NEXT_PUBLIC_IMAGES_HOST}`
+                )
+              : ""
+          }
+          alt=""
           key={Math.random()}
-          url="https://drive.google.com/uc?export=download&id=1M1G6EJ58hWoFJ_JyTqPQlT_ujMTUgdum"
           className={styles.player}
         />
       ))}

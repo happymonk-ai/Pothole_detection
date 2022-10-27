@@ -4,54 +4,55 @@ import { CategoryTypes } from '../../../components/sidebar/cards/categories/Cate
 
 
 export type TDetection = {
-    type: CategoryTypes;
+    severity: {
+        type: string;
+        value: number;
+    };
     name: string;
-    coordinates: string;
-    time: string;
+    geo: {
+        lon: string;
+        lat: string
+    };
+    timestamp: string;
+    id?: number;
+    length?: number;
+    width?: number;
+    surfaceArea?: number;
+    perimeter?: number;
     videos?: Array<{
         url: string;
-    }>
+    }>,
+
 }
 
 
 export interface IDetectionsCard {
     detections: Array<TDetection>;
     detection: TDetection;
-    isDetailView: boolean
+    isDetailView: boolean;
+    highlighted: CategoryTypes | null
 }
 
 // Initial state
 const initialState: IDetectionsCard = {
-    detections: [
-        {
-            type: CategoryTypes.high,
-            name: "Maula Ali Road",
-            coordinates: "26.92050, N, 7191650, E",
-            time: "12:35 PM",
-            videos: [{ url: "" }]
-
-
-        },
-        {
-            type: CategoryTypes.low,
-            name: "Maula Ali Road",
-            coordinates: "26.92050, N, 7191650, E",
-            time: "12:35 PM",
-            videos: [{ url: "" }]
-        },
-        {
-            type: CategoryTypes.moderate,
-            name: "Maula Ali Road",
-            coordinates: "26.92050, N, 7191650, E",
-            time: "12:35 PM",
-            videos: [{ url: "" }]
-        }
-    ],
+    detections: [],
+    highlighted: null,
     detection: {
         name: "",
-        type: CategoryTypes.high,
-        time: "",
-        coordinates: ""
+        severity: {
+            type: CategoryTypes.high,
+            value: 0
+        },
+        timestamp: "",
+        id: 0,
+        length: 0,
+        width: 0,
+        surfaceArea: 0,
+        perimeter: 0,
+        geo: {
+            lon: "",
+            lat: ""
+        },
     },
     isDetailView: false
 }
@@ -69,10 +70,13 @@ export const sidebarDetectionsSlice = createSlice({
         ,
         setDetailView(state, action) {
             state.isDetailView = action.payload
+        },
+        setHighlighted(state, action) {
+            state.highlighted = action.payload
         }
     },
 });
 
-export const { setSidebarDetections, setDetection, setDetailView } = sidebarDetectionsSlice.actions;
+export const { setSidebarDetections, setHighlighted, setDetection, setDetailView } = sidebarDetectionsSlice.actions;
 
 export default sidebarDetectionsSlice.reducer;

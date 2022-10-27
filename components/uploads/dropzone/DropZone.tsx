@@ -13,7 +13,12 @@ const DropZone: FC<IDropZoneProps> = ({ note, disabled, children }) => {
     <div
       className={`${styles.drop_zone} ${disabled && styles.disabled_drop_zone}`}
     >
-      <Image src={images.upload} alt="" className={styles.upload_img} />
+      <Image
+        src={images.upload}
+        alt=""
+        className={styles.upload_img}
+        priority={true}
+      />
       {children}
       <p className={styles.info}>{note}</p>
     </div>

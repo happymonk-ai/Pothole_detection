@@ -1,14 +1,18 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../redux/store";
 import styles from "./index.module.scss";
-import LocationCard from "./LocationCard";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 
 const LocationCards = () => {
-  const { detections } = useSelector((state: RootState) => state.detections);
+  const LocationCard = dynamic(() => import("./LocationCard"));
+  const { potholes } = useSelector((state: RootState) => state.map);
   return (
     <div className={styles.locations}>
-      {detections?.map(() => (
-        <LocationCard key={Math.random()} data={detections} />
+      {potholes?.map((detection: any) => (
+        <Suspense fallback={<div>Loading</div>} key={Math.random()}>
+          <LocationCard key={Math.random()} {...detection?.properties} />
+        </Suspense>
       ))}
     </div>
   );

@@ -1,11 +1,11 @@
 import styles from "./index.module.scss";
 import VideoCard from "./VideoCard";
 
-const VideoCards = () => {
+const VideoCards = ({ frames }: { frames: any }) => {
   return (
     <div className={styles.videos_container}>
-      {[...new Array(3)].map(() => (
-        <VideoCard key={Math.random()} />
+      {frames?.map((frame: any) => (
+        <VideoCard key={Math.random()} frame={frame} />
       ))}
     </div>
   );

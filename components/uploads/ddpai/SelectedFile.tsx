@@ -16,12 +16,26 @@ const SelectedFile: FC<FileProps> = ({ name, handleRemove, title }) => {
   );
 
   const formatName = (name: string) => {
-    if (name.includes(".mp4") && name.replace(".mp4", "").length > 16) {
-      return name.replace(".mp4", "").substring(0, 16).concat("..mp4");
+    if (
+      name?.toLowerCase().includes(".mp4") &&
+      name?.toLowerCase().replace(".mp4", "").length > 16
+    ) {
+      return name
+        ?.toLowerCase()
+        .replace(".mp4", "")
+        .substring(0, 16)
+        .concat("..mp4");
     }
 
-    if (name.includes(".gpx") && name.replace(".gpx", "").length > 16) {
-      return name.replace(".gpx", "").substring(0, 16).concat("..gpx");
+    if (
+      name?.toLowerCase().includes(".gpx") &&
+      name?.toLowerCase().replace(".gpx", "").length > 16
+    ) {
+      return name
+        ?.toLowerCase()
+        .replace(".gpx", "")
+        .substring(0, 16)
+        .concat("..gpx");
     }
 
     return name;
@@ -41,15 +55,15 @@ const SelectedFile: FC<FileProps> = ({ name, handleRemove, title }) => {
           alt=""
           className={styles.icon}
           onClick={handleRemove}
+          priority={true}
         />
       </div>
-      {status === "loading" ||
-        (status === "succeeded" && (
-          <div
-            className={styles.progress_bar}
-            style={{ width: `${(progress * 196) / 100}px` }}
-          ></div>
-        ))}
+      {status === "loading" && (
+        <div
+          className={styles.progress_bar}
+          style={{ width: `${(progress * 196) / 100}px` }}
+        ></div>
+      )}
     </div>
   );
 };

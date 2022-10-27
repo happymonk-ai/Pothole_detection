@@ -1,0 +1,22 @@
+.map_zoom_controls {
+  position: absolute;
+  bottom: 32px;
+  right: 390px;
+  margin-top: 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  pointer-events: all !important;
+  z-index: 999;
+  .icon_container {
+    width: 44px;
+    height: 44px;
+    background: rgba(46, 48, 52, 0.2);
+    backdrop-filter: blur(15px);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+}

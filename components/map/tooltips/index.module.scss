@@ -1,0 +1,36 @@
+.tooltip {
+  background: rgba($color: #000000, $alpha: 0.8) !important;
+  height: 122px !important;
+  width: 304px !important;
+  border-radius: 4px !important;
+  padding: 7px 2px 7px 7px !important;
+}
+.tooltip_border {
+  border: 1px solid #c4c4c4 !important;
+}
+
+.big_tooltip_content {
+  display: flex;
+  flex-direction: column;
+  .info {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 2px;
+    .sub_header {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: rgba(228, 228, 231, 0.8);
+      margin: 0%;
+    }
+    .text {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 20px;
+      color: #e4e4e7;
+      margin: 0%;
+      text-align: left;
+    }
+  }
+}

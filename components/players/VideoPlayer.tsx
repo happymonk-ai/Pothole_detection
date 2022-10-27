@@ -12,6 +12,8 @@ interface IVideoProps {
     controls?: boolean;
     mute?: boolean;
     loop?: boolean;
+    width?: string;
+    height?: string;
   };
 }
 
@@ -37,6 +39,8 @@ const VideoPlayer: FC<IVideoProps> = ({ url, className, settings }) => {
       autoPlay={settings?.autoPlay}
       controls={settings?.controls}
       loop={settings?.loop}
+      width={settings?.width}
+      height={settings?.height}
     >
       <source type="video/mp4" src={url} />
     </video>
