@@ -2,13 +2,13 @@ import DetectionsHeading from "./heading";
 import styles from "./index.module.scss";
 import LocationCards from "./location";
 
-const Detections = () => {
+const Detections = ({ date }: { date: string }) => {
   return (
     <div className={styles.container}>
-      <DetectionsHeading date="13/10/2022" />
+      <DetectionsHeading date={date} />
       <LocationCards />
     </div>
   );
 };
 
-export default Detections;  
+export default Detections;

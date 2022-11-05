@@ -62,6 +62,7 @@ const ShareSidebar = () => {
               alt=""
               className={styles.icon}
               onClick={handleClose}
+              priority={true}
             />
           </div>
         </div>

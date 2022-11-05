@@ -20,6 +20,10 @@ const FullScreenVideo = () => {
   const video = document.getElementById("video") as HTMLVideoElement | null;
 
   useEffect(() => {
+    video?.play();
+  }, []);
+
+  useEffect(() => {
     if (video != null) {
       video.play();
     }
@@ -39,7 +43,13 @@ const FullScreenVideo = () => {
         <VideoPlayer
           url={active}
           className={styles.player_fullscreen}
-          settings={{ autoPlay: true, controls: false, loop: true }}
+          settings={{
+            autoPlay: true,
+            controls: false,
+            loop: true,
+            width: "1198px",
+            height: "720px",
+          }}
         />
         <FullScreenControls />
       </div>

@@ -16,16 +16,21 @@ const SidebarHeader = () => {
     dispatch(setSidebarShareIsOpen(true));
   };
 
-
   const handleDetailsClose = () => {
-    dispatch(setDetailView(false))
-  }
+    dispatch(setDetailView(false));
+  };
 
   return (
     <div className={styles.container}>
       <div className={`${styles.left}`}>
         {isDetailView && (
-          <Image src={images.arrow_left} alt="" className={styles.icon}  onClick={handleDetailsClose}/>
+          <Image
+            src={images.arrow_left}
+            alt=""
+            className={styles.icon}
+            onClick={handleDetailsClose}
+            priority={true}
+          />
         )}
         <h1 className={`${styles.title}  ${common_styles.sidebar_main_header}`}>
           {(isDetailView && "Pothole detected") || "Potholes Metrics"}
@@ -38,6 +43,7 @@ const SidebarHeader = () => {
             alt=""
             onClick={handleOpen}
             className={styles.icon}
+            priority={true}
           />
         </div>
       )}

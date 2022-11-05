@@ -10,6 +10,7 @@ const Home: NextPage = () => {
         <meta name="description" content="Pothole detection application" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/logo192.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <DashboardLayout />
     </div>

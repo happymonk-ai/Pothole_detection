@@ -22,6 +22,7 @@ export interface IUploader {
         mp4: File | null
         gpx: File | null
     },
+    showProgress: boolean,
     ddpaiUploadingFiles: {
         mp4: string;
         gpx: string;
@@ -48,6 +49,7 @@ const initialState: IUploader = {
         mp4: null,
         gpx: null
     },
+    showProgress: false,
     ddpaiUploadingFiles: {
         mp4: "",
         gpx: ""
@@ -110,6 +112,9 @@ export const uploaderSlice = createSlice({
         deleteDdpaiFile(state, action) {
             state.uploaded_ddpai = state.uploaded_ddpai.filter((el) => el.name !== action.payload)
         },
+        setShowProgress(state, action) {
+            state.showProgress = action.payload;
+        }
 
     },
     extraReducers(builder) {
@@ -160,6 +165,6 @@ export const uploaderSlice = createSlice({
     },
 });
 
-export const { openUploader, setSelectedFiles, removeSelectedFile, setCameraType, changeStep, resetUploader, updateProgress, setFileName, setFilesLength, setCurrentFileNumber, setDdpaiFiles, setUploadedDdpai, setDdpaidUploadingFiles, setUploadedGopro, setStatus, deleteDdpaiFile, deleteGoProFile } = uploaderSlice.actions;
+export const { openUploader, setSelectedFiles, removeSelectedFile, setCameraType, changeStep, resetUploader, updateProgress, setFileName, setFilesLength, setCurrentFileNumber, setDdpaiFiles, setUploadedDdpai, setDdpaidUploadingFiles, setUploadedGopro, setStatus, deleteDdpaiFile, deleteGoProFile, setShowProgress } = uploaderSlice.actions;
 
 export default uploaderSlice.reducer;

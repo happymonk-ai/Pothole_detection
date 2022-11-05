@@ -1,31 +1,43 @@
-.recent_videos {
+@import "../../../styles/variables.scss";
 
-    display: flex;
-    gap: 7px;
-    flex-direction: column;
-    .title{
-font-style: normal;
-font-weight: 600;
-font-size: 14px;
-line-height: 20px;
-letter-spacing: 1px;
-color: rgba(255, 255, 255, 0.8);
-margin: 0%;
-    }
- .videos_container{
+.recent_videos {
+  display: flex;
+  gap: 7px;
+  flex-direction: column;
+  .title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0%;
+  }
+  .videos_container {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    height: 650px;
+    max-height: 650px;
     overflow: scroll !important;
-    &::-webkit-scrollbar{
-        display: none !important;
+    &::-webkit-scrollbar {
+      display: none !important;
     }
     -ms-overflow-style: none !important;
-    scrollbar-width: none !important; 
+    scrollbar-width: none !important;
     .recent_video {
-        height: 118px !important;
-        width: 200px !important;
+      height: 118px !important;
+      width: 200px !important;
     }
- }
+  }
 }
+
+// .videos {
+//   position: absolute;
+//   pointer-events: all !important;
+//   max-height: 73vh;
+//   width: 246px;
+//   margin-left: 4px;
+//   background-color: map-get($colors, "tp-gray");
+//   bottom: 14px;
+//   padding: 21px 24px;
+// }

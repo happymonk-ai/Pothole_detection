@@ -7,36 +7,36 @@ import {
   FLUSH,
   PAUSE,
   PERSIST,
-  persistReducer,
-  persistStore,
+  // persistReducer,
+  // persistStore,
   PURGE,
   REGISTER,
   REHYDRATE,
 } from "redux-persist";
 
 import logger from "redux-logger";
-import storage from "redux-persist/lib/storage";
+// import storage from "redux-persist/lib/storage";
 import { rootReducer } from "./modules/rootReducer";
 
 // redux persist config
-const persistConfig = {
-  key: "persist-root",
-  storage,
-  blacklist: ["detections", "uploader", "player"],
-  //   transforms: [
-  //     encryptTransform({
-  //       secretKey: process.env.NEXT_PUBLIC_REDUX_TRANSFORMER_KEY,
-  //       onError: (err) => {
-  //         console.log("err", err);
-  //       },
-  //     }),
-  //   ],
-};
+// const persistConfig = {
+//   key: "persist-root",
+//   storage,
+//   blacklist: ["detections", "map", "uploader", "player"]
+//   //   transforms: [
+//   //     encryptTransform({
+//   //       secretKey: process.env.NEXT_PUBLIC_REDUX_TRANSFORMER_KEY,
+//   //       onError: (err) => {
+//   //         console.log("err", err);
+//   //       },
+//   //     }),
+//   //   ],
+// };
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+// const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: rootReducer,
   devTools: process.env.NODE_ENV === "development",
   middleware: (getDefaultMiddleware) =>
     (process.env.NODE_ENV === "development" &&
@@ -56,4 +56,4 @@ setupListeners(store.dispatch);
 
 export type RootState = ReturnType<typeof store.getState>;
 
-export const persistor = persistStore(store);
+// export const persistor = persistStore(store);

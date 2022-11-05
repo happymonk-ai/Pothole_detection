@@ -10,7 +10,10 @@ interface IInfoCardProps {
     road: string;
     coordinates: string;
   };
-  severity: CategoryTypes;
+  severity: {
+    type: CategoryTypes | string;
+    value: number;
+  };
 }
 
 const InfoCard: FC<IInfoCardProps> = ({ surface, location, severity }) => {
@@ -22,7 +25,7 @@ const InfoCard: FC<IInfoCardProps> = ({ surface, location, severity }) => {
       <div className={`${styles.content}  ${styles.content_container}`}>
         <div className={styles.top_details}>
           <div className={styles.icon_container}>
-            <Image src={images.surface} alt="" />
+            <Image src={images.surface} alt="" priority={true} />
           </div>
           <div className={`${styles.content}`}>
             <div className={styles.surface}>
@@ -40,12 +43,12 @@ const InfoCard: FC<IInfoCardProps> = ({ surface, location, severity }) => {
         </div>
         <div className={styles.bottom_details}>
           <div className={styles.icon_container}>
-            <Image src={images.severity} alt="" />
+            <Image src={images.severity} alt="" priority={true} />
           </div>
           <div className={styles.content}>
             <div className={styles.severity}>
               <h2 className={styles.title}>Severity</h2>
-              <h1 className={styles.info}>{severity}</h1>
+              <h1 className={styles.info}>{severity.type}</h1>
             </div>
           </div>
         </div>

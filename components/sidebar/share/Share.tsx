@@ -10,7 +10,7 @@ const Share: FC<TShareProps> = ({ icon, name }) => {
   return (
     <div className={styles.share}>
       <div className={styles.icon_container}>
-        <Image src={icon} alt="" className={styles.icon} />
+        <Image src={icon} alt="" className={styles.icon} priority={true} />
       </div>
 
       <h2 className={styles.name}>{name}</h2>

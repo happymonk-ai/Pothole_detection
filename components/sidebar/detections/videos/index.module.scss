@@ -1,26 +1,25 @@
 @import "../../../../styles/variables.scss";
 
 .videos_container {
-    &::-webkit-scrollbar {
-        display: none;
-    }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
-    cursor: pointer;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  cursor: pointer;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
-    display: flex;
-    gap: 15px;
-    overflow-x: scroll;
-    width: 327px;
+  display: flex;
+  gap: 15px;
+  overflow-x: scroll !important;
+  width: 327px;
+  margin-bottom: 0px !important;
+  padding-bottom: 15px;
+
+  .player {
+    min-width: 200px;
+    min-height: 118px;
+    border-radius: 0px;
     margin-bottom: 0px !important;
-    padding-bottom: 15px;
-
-    .player {
-        margin-block-end: 118px;
-        min-width: 200px;
-        min-height: 118px;
-        border-radius: 0px;
-        margin-bottom: 0px !important;
-    }
+  }
 }

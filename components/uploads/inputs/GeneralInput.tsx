@@ -1,4 +1,6 @@
 import { FC } from "react";
+import { useDispatch } from "react-redux";
+import { setShowProgress } from "../../../redux/modules/slices/uploaderSlice";
 import styles from "./index.module.scss";
 
 type TGeneralProps = {
@@ -6,17 +8,24 @@ type TGeneralProps = {
   text: string;
 };
 const GeneralInput: FC<TGeneralProps> = ({ handleSelectedFiles, text }) => {
+  const dispatch = useDispatch();
   return (
     <label
-      htmlFor="uploadInput"
+      htmlFor="uploadInputGeneral"
       onChange={(e: any) => {
+        dispatch(setShowProgress(true));
         handleSelectedFiles(e.target.files);
         e.target.value = null;
       }}
       className={styles.files_upload_label}
     >
       <h1 className={styles.action}>{text}</h1>
-      <input type="file" multiple id="uploadInput" className={styles.input} />
+      <input
+        type="file"
+        multiple
+        id="uploadInputGeneral"
+        className={styles.input}
+      />
     </label>
   );
 };

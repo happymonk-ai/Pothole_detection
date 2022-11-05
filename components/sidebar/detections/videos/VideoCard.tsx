@@ -1,10 +1,14 @@
-import VideoPlayer from "../../../players/VideoPlayer";
 import styles from "./index.module.scss";
 
-const VideoCard = () => {
+const VideoCard = ({ frame }: { frame: any }) => {
   return (
-    <VideoPlayer
-      url="https://drive.google.com/uc?export=download&id=1M1G6EJ58hWoFJ_JyTqPQlT_ujMTUgdum"
+    <img
+      src={
+        frame
+          ? frame.replace("./output/", `${process.env.NEXT_PUBLIC_IMAGES_HOST}`)
+          : ""
+      }
+      alt=""
       className={styles.player}
     />
   );

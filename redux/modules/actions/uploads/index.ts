@@ -6,10 +6,10 @@ import { deleteDdpaiFile, deleteGoProFile, setCurrentFileNumber, setDdpaidUpload
 
 
 export const getUploads = createAsyncThunk(
-    'posts/getFiles',
+    'uploadsgetFiles',
     async () => {
         const res = await http.get("/uploads");
-        return res;
+        return res.data;
     })
 
 
@@ -40,6 +40,7 @@ export const uploadFiles = createAsyncThunk("files/uploadFiles", async (files: F
         return res;
 
     } catch (error) {
+        // store.dispatch(resetUploader());
         throw new Error("Something went wrong");
 
     };
@@ -55,10 +56,10 @@ export const uploadDdpaiFiles = createAsyncThunk("files/uploadDdpaiFiles", async
             gpx: ""
         }
         files?.map((file: any) => {
-            if (file.name.includes(".mp4")) {
+            if (file.name?.toLowerCase().includes(".mp4")) {
                 upload_files.mp4 = file.name
             }
-            if (file.name.includes(".gpx")) {
+            if (file.name?.toLowerCase().includes(".gpx")) {
                 upload_files.gpx = file.name
             }
             formData.append("files", file);
@@ -80,6 +81,7 @@ export const uploadDdpaiFiles = createAsyncThunk("files/uploadDdpaiFiles", async
 
         return res;
     } catch (error) {
+        // store.dispatch(resetUploader());
         throw new Error("Something went wrong");
 
     }
@@ -90,7 +92,9 @@ export const uploadDdpaiFiles = createAsyncThunk("files/uploadDdpaiFiles", async
 
 export const deleteFile = createAsyncThunk("files/deleteFiles", async (file: any) => {
     try {
-        const res = http.delete(`/uploads?path=${file?.destination}/${file.name}`, {
+
+        const path = file.cameraType === cameraTypes.ddpai && file?.destination || `${file?.destination}/${file.name}`
+        const res = http.delete(`/uploads?path=${path}`, {
             headers: {
                 "Content-Type": "application/json"
             }
@@ -106,7 +110,20 @@ export const deleteFile = createAsyncThunk("files/deleteFiles", async (file: any
 
         return res;
     } catch (error) {
+        console.log(error);
         throw new Error("Something went wrong");
 
     }
 })
+
+
+export const getMapData = createAsyncThunk(
+    'map/mapData',
+    async () => {
+        try {
+            const res = await http.get("/map_data");
+            return res.data;
+        } catch (error) {
+            throw new Error("Something went wrong");
+        }
+    })

@@ -5,7 +5,7 @@ import SelectedFile from "./SelectedFile";
 import styles from "./index.module.scss";
 
 const SelectedFiles = () => {
-  const { ddpaiFiles, status, ddpaiUploadingFiles } = useSelector(
+  const { ddpaiFiles, status, ddpaiUploadingFiles, error } = useSelector(
     (satte: RootState) => satte.uploader
   );
 
@@ -55,6 +55,14 @@ const SelectedFiles = () => {
           Note: Browse the {ddpaiFiles?.mp4 ? "gpx" : "mp4"} file to upload the
           files together.
         </p>
+      )}
+
+      {error && (
+        <div className={styles.error_container}>
+          <p className={styles.error}>
+            {error || "something went wrong, try again!"}
+          </p>
+        </div>
       )}
     </div>
   );

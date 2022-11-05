@@ -19,6 +19,7 @@ const Uploader = () => {
         className={styles.icon}
         width={22}
         height={22}
+        priority={true}
       />
     </div>
   );
